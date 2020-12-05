@@ -17,18 +17,6 @@ extension Array where Element: Hashable {
 
 class Year2020Day05 {
 
-    var contentArray: [String] = []
-    
-    init() {
-        let currentDirectoryURL = URL(fileURLWithPath: FileManager.default.currentDirectoryPath)
-        let bundleURL = URL(fileURLWithPath: "AOCInput.bundle", relativeTo: currentDirectoryURL)
-        guard let bundle = Bundle(url: bundleURL) else { fatalError("Bundle not found") }
-        guard let fileURL = bundle.url(forResource: "y20d05", withExtension: "txt") else { fatalError("File not found") }
-        guard let contentData = FileManager.default.contents(atPath: fileURL.path) else { fatalError("Could not get data") }
-        guard let contentString = String(data: contentData, encoding: .utf8) else { fatalError("Could not get string") }
-        contentArray = contentString.components(separatedBy: .newlines)
-    }
-    
     let rows: [Int] = Array(0...127)
     let seats: [Int] = Array(0...7)
     var seatIDArray: [Int] = []
@@ -72,6 +60,9 @@ class Year2020Day05 {
     }
 
     func check() {
+        let input = Input()
+        let contentArray = input.get(fileName: "y20d05")
+
         // Xcode adds a extra new line in every file :( so also in input.txt
         // Thats why I use this kind of for-loop instead of `for line in contentArray`
         for line in 0..<contentArray.count - 1 {

@@ -16,19 +16,8 @@ struct InputItem {
 
 class Year2020Day02 {
 
-    var contentArray: [String] = []
     var partOneCounter = 0
     var partTwoCounter = 0
-
-    init() {
-        let currentDirectoryURL = URL(fileURLWithPath: FileManager.default.currentDirectoryPath)
-        let bundleURL = URL(fileURLWithPath: "AOCInput.bundle", relativeTo: currentDirectoryURL)
-        guard let bundle = Bundle(url: bundleURL) else { fatalError("Bundle not found") }
-        guard let fileURL = bundle.url(forResource: "y20d02", withExtension: "txt") else { fatalError("File not found") }
-        guard let contentData = FileManager.default.contents(atPath: fileURL.path) else { fatalError("Could not get data") }
-        guard let contentString = String(data: contentData, encoding: .utf8) else { fatalError("Could not get string") }
-        contentArray = contentString.components(separatedBy: .newlines)
-    }
     
     func fromLineToInputItem(inputString: String) -> InputItem {
         let stringComponents = inputString.components(separatedBy: CharacterSet(charactersIn: "-: "))
@@ -64,6 +53,9 @@ class Year2020Day02 {
     }
 
     func check() {
+        let input = Input()
+        let contentArray = input.get(fileName: "y20d02")
+        
         for line in 0..<contentArray.count - 1 {
             let inputItem = fromLineToInputItem(inputString: contentArray[line])
             checkIfPasswordIsValidPartOne(item: inputItem)

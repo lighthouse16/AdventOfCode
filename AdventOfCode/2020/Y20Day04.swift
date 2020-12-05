@@ -14,20 +14,10 @@ class Year2020Day04 {
 
     var valid1 = 0
     var valid2 = 0
-    
-    var contentArray: [String] = []
-    
-    init() {
-        let currentDirectoryURL = URL(fileURLWithPath: FileManager.default.currentDirectoryPath)
-        let bundleURL = URL(fileURLWithPath: "AOCInput.bundle", relativeTo: currentDirectoryURL)
-        guard let bundle = Bundle(url: bundleURL) else { fatalError("Bundle not found") }
-        guard let fileURL = bundle.url(forResource: "y20d04", withExtension: "txt") else { fatalError("File not found") }
-        guard let contentData = FileManager.default.contents(atPath: fileURL.path) else { fatalError("Could not get data") }
-        guard let contentString = String(data: contentData, encoding: .utf8) else { fatalError("Could not get string") }
-        contentArray = contentString.components(separatedBy: .newlines)
-    }
 
     func check() {
+        let input = Input()
+        let contentArray = input.get(fileName: "y20d04")
         let passportData = contentArray.split(separator: "")
 
         for passport in passportData {
