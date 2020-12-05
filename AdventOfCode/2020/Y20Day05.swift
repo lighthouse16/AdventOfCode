@@ -20,7 +20,7 @@ class Year2020Day05 {
     let rows: [Int] = Array(0...127)
     let seats: [Int] = Array(0...7)
     var seatIDArray: [Int] = []
-    
+
     func calculateSeatID(row: Int, seat: Int) -> Int {
         return (row * 8) + seat
     }
@@ -28,7 +28,7 @@ class Year2020Day05 {
     func getRowNumber(rowData: String) -> Int {
         var tempRows: [Int] = rows
         let input = Array(rowData)
-        
+
         for character in input {
             if character == Character("B") {
                 let midpoint = tempRows.count / 2
@@ -38,14 +38,14 @@ class Year2020Day05 {
                 tempRows = Array(tempRows[..<midpoint])
             }
         }
-        
+
         return tempRows.first ?? 999
     }
 
     func getSeatNumber(seatData: String) -> Int {
         var tempSeats: [Int] = seats
         let input = Array(seatData)
-        
+
         for character in input {
             if character == Character("R") {
                 let midpoint = tempSeats.count / 2
@@ -55,7 +55,7 @@ class Year2020Day05 {
                 tempSeats = Array(tempSeats[..<midpoint])
             }
         }
-        
+
         return tempSeats.first ?? 999
     }
 
@@ -71,14 +71,14 @@ class Year2020Day05 {
 
             let rowNumber = getRowNumber(rowData: rowData)
             let seatNumber = getSeatNumber(seatData: seatData)
-            
+
             let seatID = calculateSeatID(row: rowNumber, seat: seatNumber)
             seatIDArray.append(seatID)
         }
-        
+
         let minSeatID = seatIDArray.min() ?? 999
         let maxSeatID = seatIDArray.max() ?? 999
-        
+
         let missingID = seatIDArray.difference(from: Array(minSeatID...maxSeatID))
 
         print("Part1: \(maxSeatID)")

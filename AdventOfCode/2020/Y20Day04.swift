@@ -8,7 +8,7 @@
 import Foundation
 
 class Year2020Day04 {
-    
+
     let expectedFields = ["byr", "iyr", "eyr", "hgt", "hcl", "ecl", "pid"]
     let eyeColors = Set(["amb", "blu", "brn", "gry", "grn", "hzl", "oth"])
 
@@ -36,39 +36,45 @@ class Year2020Day04 {
             valid1 += 1
 
             // Part 2
-            let byr = fieldMap["byr"]!
-            guard let intByr = Int(byr), (1920 ... 2002).contains(intByr) else { continue }
-
-            let iyr = fieldMap["iyr"]!
-            guard let intIyr = Int(iyr), (2010 ... 2020).contains(intIyr) else { continue }
-
-            let eyr = fieldMap["eyr"]!
-            guard let intEyr = Int(eyr), (2020 ... 2030).contains(intEyr) else { continue }
-
-            let hgt = fieldMap["hgt"]!
-
-            if hgt.hasSuffix("cm") {
-                let cms = hgt.dropLast(2)
-                guard let intCms = Int(cms), (150 ... 193).contains(intCms) else { continue }
-            } else if hgt.hasSuffix("in") {
-                let ins = hgt.dropLast(2)
-                guard let intIns = Int(ins), (59 ... 76).contains(intIns) else { continue }
-            } else {
-                continue
+            if let byr = fieldMap["byr"] {
+                guard let intByr = Int(byr), (1920 ... 2002).contains(intByr) else { continue }
             }
 
-            let hcl = fieldMap["hcl"]!
-            guard hcl.count == 7, hcl.first == "#", hcl.dropFirst().allSatisfy({ $0.isHexDigit }) else { continue }
+            if let iyr = fieldMap["iyr"] {
+                guard let intIyr = Int(iyr), (2010 ... 2020).contains(intIyr) else { continue }
+            }
 
-            let ecl = fieldMap["ecl"]!
-            guard eyeColors.contains(ecl) else { continue }
+            if let eyr = fieldMap["eyr"] {
+                guard let intEyr = Int(eyr), (2020 ... 2030).contains(intEyr) else { continue }
+            }
 
-            let pid = fieldMap["pid"]!
-            guard pid.count == 9, pid.allSatisfy({ $0.isNumber }) else { continue }
+            if let hgt = fieldMap["hgt"] {
+                if hgt.hasSuffix("cm") {
+                    let cms = hgt.dropLast(2)
+                    guard let intCms = Int(cms), (150 ... 193).contains(intCms) else { continue }
+                } else if hgt.hasSuffix("in") {
+                    let ins = hgt.dropLast(2)
+                    guard let intIns = Int(ins), (59 ... 76).contains(intIns) else { continue }
+                } else {
+                    continue
+                }
+            }
+
+            if let hcl = fieldMap["hcl"] {
+                guard hcl.count == 7, hcl.first == "#", hcl.dropFirst().allSatisfy({ $0.isHexDigit }) else { continue }
+            }
+
+            if let ecl = fieldMap["ecl"] {
+                guard eyeColors.contains(ecl) else { continue }
+            }
+
+            if let pid = fieldMap["pid"] {
+                guard pid.count == 9, pid.allSatisfy({ $0.isNumber }) else { continue }
+            }
 
             valid2 += 1
         }
-        
+
         print(valid1)
         print(valid2)
     }

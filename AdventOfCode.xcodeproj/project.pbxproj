@@ -39,8 +39,6 @@
 		265625F1257B809F003F5975 /* y20d02.txt in Resources */ = {isa = PBXBuildFile; fileRef = 265625F0257B809F003F5975 /* y20d02.txt */; };
 		265625F9257B80FB003F5975 /* y20d03.txt in Resources */ = {isa = PBXBuildFile; fileRef = 265625F8257B80FB003F5975 /* y20d03.txt */; };
 		265625FF257B81FA003F5975 /* y20d05.txt in Resources */ = {isa = PBXBuildFile; fileRef = 265625FE257B81FA003F5975 /* y20d05.txt */; };
-		2656265B257B8C37003F5975 /* y19d01.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2656265A257B8C37003F5975 /* y19d01.txt */; };
-		26562667257B8D13003F5975 /* Y19Day01.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26562659257B8BFD003F5975 /* Y19Day01.swift */; };
 		26562670257B9042003F5975 /* Input.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2656266F257B9042003F5975 /* Input.swift */; };
 /* End PBXBuildFile section */
 
@@ -94,9 +92,8 @@
 		265625FE257B81FA003F5975 /* y20d05.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = y20d05.txt; sourceTree = "<group>"; };
 		26562604257B83DA003F5975 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		26562605257B83F1003F5975 /* LICENSE */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
-		26562659257B8BFD003F5975 /* Y19Day01.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Y19Day01.swift; sourceTree = "<group>"; };
-		2656265A257B8C37003F5975 /* y19d01.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = y19d01.txt; sourceTree = "<group>"; };
 		2656266F257B9042003F5975 /* Input.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Input.swift; sourceTree = "<group>"; };
+		265626A9257BB5E7003F5975 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +117,7 @@
 		26562557257B7799003F5975 = {
 			isa = PBXGroup;
 			children = (
+				265626A9257BB5E7003F5975 /* .swiftlint.yml */,
 				26562605257B83F1003F5975 /* LICENSE */,
 				26562604257B83DA003F5975 /* README.md */,
 				26562562257B7799003F5975 /* AdventOfCode */,
@@ -141,7 +139,6 @@
 			isa = PBXGroup;
 			children = (
 				2656266E257B9034003F5975 /* Helper */,
-				26562658257B8BF5003F5975 /* 2019 */,
 				2656256D257B77CB003F5975 /* 2020 */,
 				26562563257B7799003F5975 /* main.swift */,
 			);
@@ -183,7 +180,6 @@
 		26562577257B7BF5003F5975 /* AOCInput */ = {
 			isa = PBXGroup;
 			children = (
-				2656265A257B8C37003F5975 /* y19d01.txt */,
 				26562586257B7D54003F5975 /* y20d01.txt */,
 				265625F0257B809F003F5975 /* y20d02.txt */,
 				265625F8257B80FB003F5975 /* y20d03.txt */,
@@ -192,14 +188,6 @@
 				26562578257B7BF5003F5975 /* Info.plist */,
 			);
 			path = AOCInput;
-			sourceTree = "<group>";
-		};
-		26562658257B8BF5003F5975 /* 2019 */ = {
-			isa = PBXGroup;
-			children = (
-				26562659257B8BFD003F5975 /* Y19Day01.swift */,
-			);
-			path = 2019;
 			sourceTree = "<group>";
 		};
 		2656266E257B9034003F5975 /* Helper */ = {
@@ -220,6 +208,7 @@
 				2656255C257B7799003F5975 /* Sources */,
 				2656255D257B7799003F5975 /* Frameworks */,
 				2656255E257B7799003F5975 /* CopyFiles */,
+				265626AA257BB605003F5975 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -288,7 +277,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2656265B257B8C37003F5975 /* y19d01.txt in Resources */,
 				2656257E257B7C28003F5975 /* y20d04.txt in Resources */,
 				265625FF257B81FA003F5975 /* y20d05.txt in Resources */,
 				26562587257B7D54003F5975 /* y20d01.txt in Resources */,
@@ -298,6 +286,26 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		265626AA257BB605003F5975 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint >/dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		2656255C257B7799003F5975 /* Sources */ = {
@@ -321,7 +329,6 @@
 				26562670257B9042003F5975 /* Input.swift in Sources */,
 				265625CD257B7E35003F5975 /* Y20Day17.swift in Sources */,
 				265625D9257B7E50003F5975 /* Y20Day20.swift in Sources */,
-				26562667257B8D13003F5975 /* Y19Day01.swift in Sources */,
 				265625C5257B7E27003F5975 /* Y20Day15.swift in Sources */,
 				265625B9257B7E0F003F5975 /* Y20Day12.swift in Sources */,
 				265625D1257B7E42003F5975 /* Y20Day18.swift in Sources */,

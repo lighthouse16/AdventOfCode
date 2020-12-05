@@ -18,7 +18,7 @@ class Year2020Day02 {
 
     var partOneCounter = 0
     var partTwoCounter = 0
-    
+
     func fromLineToInputItem(inputString: String) -> InputItem {
         let stringComponents = inputString.components(separatedBy: CharacterSet(charactersIn: "-: "))
         return InputItem(firstNumber: Int(stringComponents[0]) ?? 0,
@@ -37,10 +37,9 @@ class Year2020Day02 {
 
     func checkIfPasswordIsValidPartTwo(item: InputItem) {
         let character = Character(item.character)
-        
         let firstCharacter = Array(item.password)[item.firstNumber - 1]
         let secondCharacter = Array(item.password)[item.secondNumber - 1]
-        
+
         if firstCharacter == character {
             if secondCharacter != character {
                 partTwoCounter += 1
@@ -55,7 +54,7 @@ class Year2020Day02 {
     func check() {
         let input = Input()
         let contentArray = input.get(fileName: "y20d02")
-        
+
         for line in 0..<contentArray.count - 1 {
             let inputItem = fromLineToInputItem(inputString: contentArray[line])
             checkIfPasswordIsValidPartOne(item: inputItem)

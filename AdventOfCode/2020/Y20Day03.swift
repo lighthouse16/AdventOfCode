@@ -10,7 +10,7 @@ import Foundation
 class Year2020Day03 {
 
     var contentArray: [String] = []
-    
+
     init() {
         let currentDirectoryURL = URL(fileURLWithPath: FileManager.default.currentDirectoryPath)
         let bundleURL = URL(fileURLWithPath: "AOCInput.bundle", relativeTo: currentDirectoryURL)
@@ -35,7 +35,7 @@ class Year2020Day03 {
         }
         return treeCount
     }
-    
+
     func check() {
         let part1 = treeCount(with: contentArray, right: 3, down: 1)
         let part2 = treeCount(with: contentArray, right: 1, down: 1) *

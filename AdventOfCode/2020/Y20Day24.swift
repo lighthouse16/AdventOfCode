@@ -11,6 +11,5 @@ class Year2020Day24 {
     func check() {
         let input = Input()
         let contentArray = input.get(fileName: "y20d24")
-        
     }
 }
