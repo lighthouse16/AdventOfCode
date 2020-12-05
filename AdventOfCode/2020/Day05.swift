@@ -84,12 +84,13 @@ class Year2020Day05 {
             let seatID = calculateSeatID(row: rowNumber, seat: seatNumber)
             seatIDArray.append(seatID)
         }
+        
+        let minSeatID = seatIDArray.min() ?? 999
+        let maxSeatID = seatIDArray.max() ?? 999
+        
+        let missingID = seatIDArray.difference(from: Array(minSeatID...maxSeatID))
 
-        print("Part1: \(seatIDArray.max() ?? 999)")
-
-        let arrayToCompareWith = Array(12...858)
-        let missingID = seatIDArray.difference(from: arrayToCompareWith)
-
+        print("Part1: \(maxSeatID)")
         print("Part2: \(missingID.first ?? 999)")
     }
 }
