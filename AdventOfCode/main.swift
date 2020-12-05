@@ -1,11 +1,9 @@
 //
 //  main.swift
 //  AdventOfCode
-//
-//  Created by Peter Cammeraat on 05/12/2020.
+//  Lighthouse16
 //
 
 import Foundation
 
-print("Hello, World!")
-
+Year2020Day05().check()
