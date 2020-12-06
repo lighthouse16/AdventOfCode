@@ -32,7 +32,7 @@ class Year2020Day06 {
         let groups = contentArray.split(separator: "")
 
         var answeredYes: [Int] = []
-        var answeredByAllInGroup: [Int] = []
+        var answeredByAllInGroup = 0
 
         for group in groups {
             var characters: [Character] = []
@@ -47,18 +47,14 @@ class Year2020Day06 {
             let uniqueCharacters = characters.uniques
             answeredYes.append(uniqueCharacters.count)
 
-            let personCount = group.count
-            let frequency = characters.frequency
-
-            for (_, value) in frequency where value == personCount {
-                answeredByAllInGroup.append(1)
+            for (_, value) in characters.frequency where value == group.count {
+                answeredByAllInGroup += 1
             }
         }
 
         let part1Sum = answeredYes.reduce(0, +)
-        let part2Sum = answeredByAllInGroup.reduce(0, +)
 
         print("Part1: \(part1Sum)")
-        print("Part1: \(part2Sum)")
+        print("Part2: \(answeredByAllInGroup)")
     }
 }
