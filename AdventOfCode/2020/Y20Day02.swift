@@ -55,8 +55,8 @@ class Year2020Day02 {
         let input = Input()
         let contentArray = input.get(fileName: "y20d02")
 
-        for line in 0..<contentArray.count - 1 {
-            let inputItem = fromLineToInputItem(inputString: contentArray[line])
+        for line in contentArray {
+            let inputItem = fromLineToInputItem(inputString: line)
             checkIfPasswordIsValidPartOne(item: inputItem)
             checkIfPasswordIsValidPartTwo(item: inputItem)
         }

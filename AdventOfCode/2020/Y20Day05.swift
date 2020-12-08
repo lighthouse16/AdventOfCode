@@ -65,9 +65,9 @@ class Year2020Day05 {
 
         // Xcode adds a extra new line in every file :( so also in input.txt
         // Thats why I use this kind of for-loop instead of `for line in contentArray`
-        for line in 0..<contentArray.count - 1 {
-            let rowData = String(contentArray[line].prefix(7))
-            let seatData = String(contentArray[line].suffix(3))
+        for line in contentArray {
+            let rowData = String(line.prefix(7))
+            let seatData = String(line.suffix(3))
 
             let rowNumber = getRowNumber(rowData: rowData)
             let seatNumber = getSeatNumber(seatData: seatData)

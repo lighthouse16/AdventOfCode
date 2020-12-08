@@ -15,10 +15,8 @@ class Year2020Day01 {
 
         var numbers: [Int] = []
 
-        // Xcode adds a extra new line in every file :( so also in input.txt
-        // Thats why I use this kind of for-loop instead of `for line in contentArray`
-        for line in 0..<contentArray.count - 1 {
-            if let number = Int(contentArray[line]) {
+        for line in contentArray {
+            if let number = Int(line) {
                 numbers.append(number)
             }
         }

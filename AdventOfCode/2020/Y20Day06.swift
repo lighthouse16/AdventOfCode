@@ -8,7 +8,7 @@
 import Foundation
 
 extension Array where Element: Hashable {
-    var uniques: Array {
+    var day6uniques: Array {
         var buffer = Array()
         var added = Set<Element>()
         for elem in self {
@@ -22,7 +22,7 @@ extension Array where Element: Hashable {
 }
 
 extension Sequence where Element: Hashable {
-    var frequency: [Element: Int] { reduce(into: [:]) { $0[$1, default: 0] += 1 } }
+    var day6frequency: [Element: Int] { reduce(into: [:]) { $0[$1, default: 0] += 1 } }
 }
 
 class Year2020Day06 {
@@ -44,10 +44,10 @@ class Year2020Day06 {
                 }
             }
 
-            let uniqueCharacters = characters.uniques
+            let uniqueCharacters = characters.day6uniques
             answeredYes.append(uniqueCharacters.count)
 
-            for (_, value) in characters.frequency where value == group.count {
+            for (_, value) in characters.day6frequency where value == group.count {
                 answeredByAllInGroup += 1
             }
         }

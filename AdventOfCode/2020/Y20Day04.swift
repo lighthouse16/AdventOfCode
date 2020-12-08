@@ -75,7 +75,7 @@ class Year2020Day04 {
             valid2 += 1
         }
 
-        print(valid1)
-        print(valid2)
+        print("Part1: \(valid1)")
+        print("Part2: \(valid2)")
     }
 }

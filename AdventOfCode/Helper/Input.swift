@@ -14,6 +14,8 @@ class Input {
         guard let fileURL = bundle.url(forResource: fileName, withExtension: "txt") else { fatalError("File not found") }
         guard let contentData = FileManager.default.contents(atPath: fileURL.path) else { fatalError("Could not get data") }
         guard let contentString = String(data: contentData, encoding: .utf8) else { fatalError("Could not get string") }
-        return contentString.components(separatedBy: .newlines)
+        var contentArray = contentString.components(separatedBy: .newlines)
+        _ = contentArray.popLast() // Last blank line added by Xcode is removed here
+        return contentArray
     }
 }
