@@ -6,4 +6,4 @@
 
 import Foundation
 
-Year2020Day07().check()
+Year2020Day08().check()
