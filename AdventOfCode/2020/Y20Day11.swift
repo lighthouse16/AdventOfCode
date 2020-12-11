@@ -4,6 +4,9 @@
 //  AdventOfCode
 //  Lighthouse16
 //
+//  Day 11:
+//  https://adventofcode.com/2020/day/11
+//
 
 import Foundation
 

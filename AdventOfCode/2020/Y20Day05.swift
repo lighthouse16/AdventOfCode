@@ -4,10 +4,13 @@
 //  AdventOfCode
 //  Lighthouse16
 //
+//  Day 5: Binary Boarding
+//  https://adventofcode.com/2020/day/5
+//
 
 import Foundation
 
-extension Array where Element: Hashable {
+private extension Array where Element: Hashable {
     func difference(from other: [Element]) -> [Element] {
         let thisSet = Set(self)
         let otherSet = Set(other)
@@ -21,11 +24,11 @@ class Year2020Day05 {
     let seats: [Int] = Array(0...7)
     var seatIDArray: [Int] = []
 
-    func calculateSeatID(row: Int, seat: Int) -> Int {
+    private func calculateSeatID(row: Int, seat: Int) -> Int {
         return (row * 8) + seat
     }
 
-    func getRowNumber(rowData: String) -> Int {
+    private func getRowNumber(rowData: String) -> Int {
         var tempRows: [Int] = rows
         let input = Array(rowData)
 
@@ -42,7 +45,7 @@ class Year2020Day05 {
         return tempRows.first ?? 999
     }
 
-    func getSeatNumber(seatData: String) -> Int {
+    private func getSeatNumber(seatData: String) -> Int {
         var tempSeats: [Int] = seats
         let input = Array(seatData)
 

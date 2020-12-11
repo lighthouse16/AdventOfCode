@@ -4,10 +4,13 @@
 //  AdventOfCode
 //  Lighthouse16
 //
+//  Day 2: Password Philosophy
+//  https://adventofcode.com/2020/day/2
+//
 
 import Foundation
 
-struct InputItem {
+private struct PasswordItem {
     var firstNumber: Int
     var secondNumber: Int
     var character: String
@@ -19,15 +22,15 @@ class Year2020Day02 {
     var partOneCounter = 0
     var partTwoCounter = 0
 
-    func fromLineToInputItem(inputString: String) -> InputItem {
+    private func fromLineToInputItem(inputString: String) -> PasswordItem {
         let stringComponents = inputString.components(separatedBy: CharacterSet(charactersIn: "-: "))
-        return InputItem(firstNumber: Int(stringComponents[0]) ?? 0,
-                         secondNumber: Int(stringComponents[1]) ?? 0,
-                         character: stringComponents[2],
-                         password: stringComponents[4])
+        return PasswordItem(firstNumber: Int(stringComponents[0]) ?? 0,
+                            secondNumber: Int(stringComponents[1]) ?? 0,
+                            character: stringComponents[2],
+                            password: stringComponents[4])
     }
 
-    func checkIfPasswordIsValidPartOne(item: InputItem) {
+    private func checkIfPasswordIsValidPartOne(item: PasswordItem) {
         let characterCount = item.password.components(separatedBy: item.character).count - 1
 
         if characterCount >= item.firstNumber && characterCount <= item.secondNumber {
@@ -35,7 +38,7 @@ class Year2020Day02 {
         }
     }
 
-    func checkIfPasswordIsValidPartTwo(item: InputItem) {
+    private func checkIfPasswordIsValidPartTwo(item: PasswordItem) {
         let character = Character(item.character)
         let firstCharacter = Array(item.password)[item.firstNumber - 1]
         let secondCharacter = Array(item.password)[item.secondNumber - 1]

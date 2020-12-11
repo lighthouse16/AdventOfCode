@@ -4,12 +4,15 @@
 //  AdventOfCode
 //  Lighthouse16
 //
+//  Day 3: Toboggan Trajectory
+//  https://adventofcode.com/2020/day/3
+//
 
 import Foundation
 
 class Year2020Day03 {
 
-    func treeCount(with forest: [String], right: Int, down: Int) -> Int {
+    private func treeCount(with forest: [String], right: Int, down: Int) -> Int {
         var treeCount = 0
         var horizontalPosition = 0
         let moveDown = forest.enumerated().compactMap { (offset, element) in
@@ -35,7 +38,7 @@ class Year2020Day03 {
                     treeCount(with: contentArray, right: 7, down: 1) *
                     treeCount(with: contentArray, right: 1, down: 2)
 
-        print(part1)
-        print(part2)
+        print("Part1: \(part1)")
+        print("Part2: \(part2)")
     }
 }

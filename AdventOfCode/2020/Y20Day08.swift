@@ -4,15 +4,18 @@
 //  AdventOfCode
 //  Lighthouse16
 //
+//  Day 8: Handheld Halting
+//  https://adventofcode.com/2020/day/8
+//
 
 import Foundation
 
-struct Instruction {
+private struct Instruction {
     var name: Name
     var value: Int
 }
 
-enum Name: String {
+private enum Name: String {
     case acc
     case nop
     case jmp
@@ -40,7 +43,7 @@ class Year2020Day08 {
         }
     }
 
-    func loopThroughInstructions(line: Int, instructions: [Instruction]) -> Bool {
+    private func loopThroughInstructions(line: Int, instructions: [Instruction]) -> Bool {
         var acc = 0
 
         var run: Set<Int> = []

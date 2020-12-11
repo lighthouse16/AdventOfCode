@@ -4,12 +4,15 @@
 //  AdventOfCode
 //  Lighthouse16
 //
+//  Day 9: Encoding Error
+//  https://adventofcode.com/2020/day/9
+//
 
 import Foundation
 
 class Year2020Day09 {
 
-    func twoSum(nums: [Int], target: Int) -> (Int, Int)? {
+    private func twoSum(nums: [Int], target: Int) -> (Int, Int)? {
         var dict = [Int: Int]()
 
         for (currentIndex, n) in nums.enumerated() {
@@ -25,7 +28,7 @@ class Year2020Day09 {
         return nil
     }
 
-    func subArraySum(array: [Int], sum: Int) -> [Int] {
+    private func subArraySum(array: [Int], sum: Int) -> [Int] {
         for i in 0..<array.count {
             for x in i..<array.count {
                 let valueRange = Array(array[i...x])

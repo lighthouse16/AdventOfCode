@@ -4,10 +4,13 @@
 //  AdventOfCode
 //  Lighthouse16
 //
+//  Day 7: Handy Haversacks
+//  https://adventofcode.com/2020/day/7
+//
 
 import Foundation
 // swiftlint:disable all
-struct Rule {
+private struct Rule {
     let colour: String
     let contents: [(colour: String, count: Int)]
 
